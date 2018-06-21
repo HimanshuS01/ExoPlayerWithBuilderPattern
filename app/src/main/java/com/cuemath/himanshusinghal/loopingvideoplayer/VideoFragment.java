@@ -121,19 +121,23 @@ public class VideoFragment extends Fragment implements AdaptiveMediaSourceEventL
         View view = inflater.inflate(R.layout.fragment_video, container, false);
         ButterKnife.bind(this, view);
         getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+        if (showControls) linMediaController.setVisibility(View.VISIBLE);
+        else linMediaController.setVisibility(View.GONE);
+
         handler = new Handler();
         initDataSource();
         //initDashPlayer(dash);
         //initHLSPlayer(HLSurl);
         initMp4Player(mp4URL);
 
-//        if (bAutoplay) {
+        if (bAutoplay) {
             if (exoPlayer != null) {
                 exoPlayer.setPlayWhenReady(true);
-//                bIsPlaying = true;
-//                setProgress();
+                bIsPlaying = true;
+                setProgress();
             }
-//        }
+        }
         return view;
     }
 

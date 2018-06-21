@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
                 .setSource("/sdcard/DCIM/Camera/VID_20180610_115516349.mp4")
                 .setLayoutId(R.id.fragment_container)
                 .setRepeat(true)
-                .showControls(false)
+                .showControls(true)
                 .buildVideoPlayer();
 
         videoUtils.play();
